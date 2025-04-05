@@ -1,4 +1,6 @@
 <?php
+
+// phpmyadmin settings + the database name from mysql script file
 $servername = "localhost";
 $username = "root";
 $password = "";
