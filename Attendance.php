@@ -75,7 +75,7 @@ include("config.php");
 $sql = "SELECT a.*, s.first_name, s.last_name, c.course_name 
 FROM attendance a
 JOIN students s ON a.student_id = s.id
-JOIN courses c ON a.course_id = c.course_id"; // ← FIXED HERE
+JOIN courses c ON a.course_id = c.course_id"; 
 
 $result = mysqli_query($conn, $sql);
 
