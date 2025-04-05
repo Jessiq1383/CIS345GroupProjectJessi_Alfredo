@@ -8,20 +8,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date = $_POST['date'];
     $status = $_POST['status'];
 
-    // Simple validation (you can expand this)
-    if (!empty($student_id) && !empty($course_id) && !empty($date) && !empty($status)) {
-        $stmt = $conn->prepare("INSERT INTO attendance (student_id, course_id, date, status) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("iiss", $student_id, $course_id, $date, $status);
+// Simple validation (you can expand this)
+if (!empty($student_id) && !empty($course_id) && !empty($date) && !empty($status)) {
+$stmt = $conn->prepare("INSERT INTO attendance (student_id, course_id, date, status) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("iiss", $student_id, $course_id, $date, $status);
         
-        if ($stmt->execute()) {
-            echo "<script>alert('Attendance record inserted successfully');</script>";
-        } else {
-            echo "<script>alert('Error: " . $stmt->error . "');</script>";
-        }
-        $stmt->close();
-    } else {
-        echo "<script>alert('Please fill in all fields');</script>";
-    }
+   if ($stmt->execute()) {
+ echo "<script>alert('Attendance record inserted successfully');</script>";
+} else {
+ echo "<script>alert('Error: " . $stmt->error . "');</script>";
+   }
+   $stmt->close();
+   } else {
+ echo "<script>alert('Please fill in all fields');</script>";
+}
 }
 
 ?>
@@ -57,12 +57,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <table class="grades_table">
 	
 	
-	<th>First Name</th>
-	<th>Last Name</th>
-	<th>Student ID</th>
-	<th>Course Name</th>
-	<th>Date</th>
-	<th>Status</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Student ID</th>
+<th>Course Name</th>
+<th>Date</th>
+<th>Status</th>
 
 
 
@@ -73,9 +73,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 include("config.php");
 
 $sql = "SELECT a.*, s.first_name, s.last_name, c.course_name 
-        FROM attendance a
-        JOIN students s ON a.student_id = s.id
-        JOIN courses c ON a.course_id = c.course_id"; // ← FIXED HERE
+FROM attendance a
+JOIN students s ON a.student_id = s.id
+JOIN courses c ON a.course_id = c.course_id"; // ← FIXED HERE
 
 $result = mysqli_query($conn, $sql);
 
@@ -83,15 +83,15 @@ if (!$result) {
     echo "<tr><td colspan='6'>Query failed: " . mysqli_error($conn) . "</td></tr>";
 } elseif (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr>
-                <td>{$row['first_name']}</td>
-                <td>{$row['last_name']}</td>
-                <td>{$row['student_id']}</td>
-                <td>{$row['course_name']}</td>
-                <td>{$row['date']}</td>
-                <td>{$row['status']}</td>
-              </tr>";
-    }
+   echo "<tr>
+   <td>{$row['first_name']}</td>
+   <td>{$row['last_name']}</td>
+  <td>{$row['student_id']}</td>
+   <td>{$row['course_name']}</td>
+   <td>{$row['date']}</td>
+      <td>{$row['status']}</td>
+</tr>";
+  }
 } else {
     echo "<tr><td colspan='6'>No attendance records found.</td></tr>";
 }

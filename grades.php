@@ -27,8 +27,8 @@ include("config.php");
 </u1>	
 </div>	
 </nav>
-<div class="table-container">
-<div class="box-form-box-table">
+<div class="container">
+<div class="box-form-box">
 <h1 >Grades of students</h1>
 <br>
 <table class="grades_table">
@@ -41,7 +41,7 @@ include("config.php");
 	<th>Current Grade</th>
 
 <?php include("login.php"); ?>
-
+</table>
 
 </table>
 </div>

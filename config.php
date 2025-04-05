@@ -10,6 +10,7 @@ if ($conn->connect_error) {
 
 }
 
+// Use to test if the connection worked
 echo "";
 
 ?>
