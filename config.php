@@ -10,7 +10,8 @@ if ($conn->connect_error) {
 
 }
 
-// Use to test if the connection worked
+// if the text appeared, it means that the connection work
+// seems like it works but just fill out the quotes if I need to double-check when I move files around
 echo "";
 
 ?>
