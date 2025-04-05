@@ -2,10 +2,11 @@
 include("config.php");
 session_start();
 
+// using POST the user can enter the email and send it to the database
 if(isset($_POST['login_user'])){
 $email = $_POST['email'];
 $staff_password = $_POST['password'];
-
+// with the mysql commands we can use what the user typed and tell the information entered by the user is correct or not 
 $sql = "SELECT * FROM teachers where email = '$email' and staff_password = '$staff_password'";
 $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
