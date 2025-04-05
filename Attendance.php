@@ -8,11 +8,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date = $_POST['date'];
     $status = $_POST['status'];
 
-// Simple validation (you can expand this)
+// Simple validation to prevent errors or having empty information go through 
 if (!empty($student_id) && !empty($course_id) && !empty($date) && !empty($status)) {
 $stmt = $conn->prepare("INSERT INTO attendance (student_id, course_id, date, status) VALUES (?, ?, ?, ?)");
 $stmt->bind_param("iiss", $student_id, $course_id, $date, $status);
-        
+  
+	// using if statements to tell the user if the record was inserted successfully or not.      
    if ($stmt->execute()) {
  echo "<script>alert('Attendance record inserted successfully');</script>";
 } else {
